@@ -8,14 +8,14 @@ topology_template:
 
     Forwarding_path1:
       type: tosca.nodes.nfv.FP.TackerV2
-      description: creates path 
+      description: creates path
       properties:
         id: 51
         path:
           - forwarder: vnfd1
-            capability: CP11
+            capability: CP1
           - forwarder: vnfd2
-            capability: CP21
+            capability: CP2
 
   groups:
     VNFFG1:
@@ -25,7 +25,7 @@ topology_template:
         vendor: tacker
         version: 1.0
         number_of_endpoints: 2
-        dependent_virtual_link: [VL1]
-        connection_point: [CP11,CP21]
+        dependent_virtual_link: [VL1,VL2]
+        connection_point: [CP1,CP2]
         constituent_vnfs: [vnfd1,vnfd2]
       members: [Forwarding_path1]

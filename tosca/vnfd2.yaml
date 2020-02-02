@@ -15,7 +15,7 @@ topology_template:
         availability_zone: nova
         flavor: m1.tiny
 
-    CP21:
+    CP2:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
         management: true
@@ -23,31 +23,12 @@ topology_template:
         anti_spoofing_protection: false
       requirements:
         - virtualLink:
-            node: VL1
+            node: VL2
         - virtualBinding:
             node: VDU1
 
-    VDU2:
-      type: tosca.nodes.nfv.VDU.Tacker
-      properties:
-        image: cirros-0.4.0-x86_64-disk
-        mgmt_driver: noop
-        availability_zone: nova
-        flavor: m1.tiny
 
-    CP22:
-      type: tosca.nodes.nfv.CP.Tacker
-      properties:
-        management: true
-        order: 0
-        anti_spoofing_protection: false
-      requirements:
-        - virtualLink:
-            node: VL1
-        - virtualBinding:
-            node: VDU2
-
-    VL1:
+    VL2:
       type: tosca.nodes.nfv.VL
       properties:
         network_name: net0
@@ -56,7 +37,7 @@ topology_template:
   policies:
     - SP1:
         type: tosca.policies.tacker.Scaling
-        targets: [VDU1, VDU2]
+        targets: [VDU1]
         properties:
           increment: 1
           cooldown: 120
