@@ -44,7 +44,7 @@ topology_template:
           actions:
             failure: respawn
 
-    CP11:
+    CP31:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
         management: true
@@ -56,7 +56,7 @@ topology_template:
         - virtualBinding:
             node: VDU1
 
-    CP12:
+    CP32:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
         order: 1
@@ -67,7 +67,7 @@ topology_template:
         - virtualBinding:
             node: VDU1
 
-    CP13:
+    CP33:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
         order: 2
@@ -78,19 +78,19 @@ topology_template:
         - virtualBinding:
             node: VDU1
 
-    VL11:
+    VL31:
       type: tosca.nodes.nfv.VL
       properties:
         network_name: net_mgmt
         vendor: Tacker
 
-    VL12:
+    VL32:
       type: tosca.nodes.nfv.VL
       properties:
         network_name: net0
         vendor: Tacker
 
-    VL13:
+    VL33:
       type: tosca.nodes.nfv.VL
       properties:
         network_name: net1
