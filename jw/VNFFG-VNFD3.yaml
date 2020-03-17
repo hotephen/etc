@@ -34,15 +34,7 @@ topology_template:
           EOF
           ifup eth1
           ifup eth2
-        monitoring_policy:
-          name: ping
-          parameters:
-            monitoring_delay: 10
-            count: 2
-            interval: 1
-            timeout: 1
-          actions:
-            failure: respawn
+
 
     CP31:
       type: tosca.nodes.nfv.CP.Tacker
