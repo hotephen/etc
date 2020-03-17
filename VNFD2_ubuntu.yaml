@@ -13,8 +13,8 @@ topology_template:
         nfv_compute:
           properties:
             num_cpus: 1
-            mem_size: 1 GB
-            disk_size: 3 GB
+            mem_size: 2 GB
+            disk_size: 10 GB
       properties:
         image: ubuntu
         availability_zone: nova
@@ -25,15 +25,8 @@ topology_template:
         user_data_format: RAW
         user_data: |
           #!/bin/sh
-          echo 1 > /proc/sys/net/ipv4/ip_forward
-          cat << EOF >> /etc/network/interfaces
-          auto eth1
-          iface eth1 inet dhcp
-          auto eth2
-          iface eth2 inet dhcp
-          EOF
-          ifup eth1
-          ifup eth2
+          sudo echo 'ubuntu:ubuntu' | chpasswd
+          sudo echo 'root:root' | chpasswd
 
     CP21:
       type: tosca.nodes.nfv.CP.Tacker
