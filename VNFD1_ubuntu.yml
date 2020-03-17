@@ -13,10 +13,10 @@ topology_template:
         nfv_compute:
           properties:
             num_cpus: 1
-            mem_size: 512 MB
-            disk_size: 1 GB
+            mem_size: 1 GB
+            disk_size: 3 GB
       properties:
-        image: cirros-0.4.0-x86_64-disk
+        image: ubuntu
         availability_zone: nova
         mgmt_driver: noop
         config: |

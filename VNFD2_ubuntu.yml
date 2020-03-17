@@ -13,10 +13,10 @@ topology_template:
         nfv_compute:
           properties:
             num_cpus: 1
-            mem_size: 512 MB
-            disk_size: 1 GB
+            mem_size: 1 GB
+            disk_size: 3 GB
       properties:
-        image: cirros-0.4.0-x86_64-disk
+        image: ubuntu
         availability_zone: nova
         mgmt_driver: noop
         config: |
@@ -34,17 +34,8 @@ topology_template:
           EOF
           ifup eth1
           ifup eth2
-        monitoring_policy:
-          name: ping
-          parameters:
-            monitoring_delay: 10
-            count: 2
-            interval: 2
-            timeout: 2
-          actions:
-            failure: notify
 
-    CP11:
+    CP21:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
         management: true
@@ -52,45 +43,45 @@ topology_template:
         anti_spoofing_protection: false
       requirements:
         - virtualLink:
-            node: VL11
+            node: VL21
         - virtualBinding:
             node: VDU1
 
-    CP12:
+    CP22:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
         order: 1
         anti_spoofing_protection: false
       requirements:
         - virtualLink:
-            node: VL12
+            node: VL22
         - virtualBinding:
             node: VDU1
 
-    CP13:
+    CP23:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
         order: 2
         anti_spoofing_protection: false
       requirements:
         - virtualLink:
-            node: VL13
+            node: VL23
         - virtualBinding:
             node: VDU1
 
-    VL11:
+    VL21:
       type: tosca.nodes.nfv.VL
       properties:
         network_name: net_mgmt
         vendor: Tacker
 
-    VL12:
+    VL22:
       type: tosca.nodes.nfv.VL
       properties:
         network_name: net0
         vendor: Tacker
 
-    VL13:
+    VL23:
       type: tosca.nodes.nfv.VL
       properties:
         network_name: net1
