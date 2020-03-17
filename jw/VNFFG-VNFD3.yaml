@@ -52,7 +52,7 @@ topology_template:
         anti_spoofing_protection: false
       requirements:
         - virtualLink:
-            node: VL11
+            node: VL31
         - virtualBinding:
             node: VDU1
 
@@ -63,7 +63,7 @@ topology_template:
         anti_spoofing_protection: false
       requirements:
         - virtualLink:
-            node: VL12
+            node: VL32
         - virtualBinding:
             node: VDU1
 
@@ -74,7 +74,7 @@ topology_template:
         anti_spoofing_protection: false
       requirements:
         - virtualLink:
-            node: VL13
+            node: VL33
         - virtualBinding:
             node: VDU1
 
