@@ -14,7 +14,7 @@ topology_template:
           properties:
             num_cpus: 1
             mem_size: 512 MB
-            disk_size: 2 GB
+            disk_size: 50 GB
       properties:
         image: vyos
         availability_zone: nova

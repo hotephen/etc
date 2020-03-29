@@ -39,8 +39,8 @@ topology_template:
           parameters:
             monitoring_delay: 10
             count: 2
-            interval: 2
-            timeout: 2
+            interval: 3
+            timeout: 5
           actions:
             failure: notify
 
