@@ -8,12 +8,17 @@ topology_template:
 
     Forwarding_path1:
       type: tosca.nodes.nfv.FP.TackerV2
-      description: creates path (CP12->CP22)
+      description: creates path (CP22)
       properties:
         id: 51
+        policy:
+          criteria:
+            - name: acl
+              classifier:
+                network_src_port_id: 85d028b5-32ad-4ec9-8848-3962d193db21
+                ip_proto: 1
+
         path:
-          - forwarder: VNFD1
-            capability: CP12
           - forwarder: VNFD2
             capability: CP22
 
@@ -24,8 +29,8 @@ topology_template:
       properties:
         vendor: tacker
         version: 1.0
-        number_of_endpoints: 2
-        dependent_virtual_link: [VL12,VL22]
-        connection_point: [CP12,CP22]
-        constituent_vnfs: [VNFD1,VNFD2]
+        number_of_endpoints: 1
+        dependent_virtual_link: [VL22]
+        connection_point: [CP22]
+        constituent_vnfs: [VNFD2]
       members: [Forwarding_path1]
