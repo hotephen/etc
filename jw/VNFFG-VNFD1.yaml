@@ -40,7 +40,7 @@ topology_template:
             monitoring_delay: 10
             count: 2
             interval: 3
-            timeout: 5
+            timeout: 8
           actions:
             failure: notify
 
